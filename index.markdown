@@ -237,7 +237,7 @@ Construct a program by dragging&amp;dropping and reordering lines. The construct
 })();
 </script>
 
- ## Excerise 1
+## Excerise 1
 Construct a program by dragging&amp;dropping and reordering lines.    
       
 <div id="IF-sortableTrash" class="sortable-code"></div> 
