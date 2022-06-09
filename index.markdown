@@ -237,6 +237,47 @@ Construct a program by dragging&amp;dropping and reordering lines. The construct
 })();
 </script>
 
+ ## Excerise 1
+Construct a program by dragging&amp;dropping and reordering lines.    
+      
+<div id="IF-sortableTrash" class="sortable-code"></div> 
+<div id="IF-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="IF-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="IF-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "theNumber = 10\n" +
+    "if theNumber == 10:\n" +
+    "    print(&quot;The  number is equal to 10&quot;)\n" +
+    "if theNumber = 10: #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "IF-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "IF-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#IF-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#IF-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
+</script>
+      
+      
 ### Implementation Notes
 
 When you host multiple Parson's problems on a single markdown page, you need to add a unique prefix. You can easily do this in the Codio generator by typing a unique prefix into the "Prefix" textbox and pressing Enter/Return. Then you can simply copy-paste like normal.
